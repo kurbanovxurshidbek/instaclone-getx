@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instaclone/controllers/my_feed_controller.dart';
@@ -58,6 +59,11 @@ class _MyFeedPageState extends State<MyFeedPage> {
                   return _itemOfPost(feedController.items[index]);
                 },
               ),
+              feedController.isLoading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : SizedBox.shrink(),
             ],
           );
         },
@@ -138,6 +144,47 @@ class _MyFeedPageState extends State<MyFeedPage> {
             fit: BoxFit.cover,
           ),
 
+          //# like_share
+          Row(
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      if (!post.liked) {
+                      } else {}
+                    },
+                    icon: post.liked
+                        ? Icon(
+                            EvaIcons.heart,
+                            color: Colors.red,
+                          )
+                        : Icon(
+                            EvaIcons.heartOutline,
+                            color: Colors.black,
+                          ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      EvaIcons.shareOutline,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+
+          //#caption
+          Container(
+            width: MediaQuery.of(context).size.width,
+            margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+            child: Text(
+              post.caption,
+              style: TextStyle(color: Colors.black, fontSize: 16),
+            ),
+          ),
         ],
       ),
     );
