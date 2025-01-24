@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "instaclone-3-b3f35",
+          "appId": "1:762810026683:android:fd71cb011ea79b7d26379e",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "instaclone-3-b3f35",
+          "appId": "1:762810026683:ios:8fc33f7f3d52531f26379e",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "instaclone-3-b3f35",
+          "configurations": {
+            "android": "1:762810026683:android:fd71cb011ea79b7d26379e",
+            "ios": "1:762810026683:ios:8fc33f7f3d52531f26379e"
+          }
+        }
+      }
+    }
+  }
+}
