@@ -7,6 +7,8 @@ import 'package:instaclone/pages/my_likes_page.dart';
 import 'package:instaclone/pages/my_profile_page.dart';
 import 'package:instaclone/pages/my_search_page.dart';
 import 'package:instaclone/pages/my_upload_page.dart';
+import 'package:instaclone/services/log_service.dart';
+import 'package:instaclone/services/prefs_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +19,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var homeController = Get.find<HomeController>();
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserId();
+  }
+
+  loadUserId()async{
+    var uuid = await PrefsService.loadUserId();
+    LogService.i(uuid);
+  }
 
   @override
   Widget build(BuildContext context) {

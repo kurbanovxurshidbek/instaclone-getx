@@ -126,7 +126,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       //#signup
                       GestureDetector(
                         onTap: () {
-                          signUpController.callHomePage();
+                          signUpController.doSignUp(context);
                         },
                         child: Container(
                             margin: EdgeInsets.only(top: 10),

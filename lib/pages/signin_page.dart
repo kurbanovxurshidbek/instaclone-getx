@@ -85,7 +85,7 @@ class _SignInPageState extends State<SignInPage> {
                       //#signin
                       GestureDetector(
                         onTap: () {
-                          signInController.callHomePage();
+                          signInController.doSignIn(context);
                         },
                         child: Container(
                             margin: EdgeInsets.only(top: 10),

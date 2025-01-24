@@ -30,7 +30,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
           title: Text("Profile"),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                profileController.doSignOut(context);
+              },
               icon: Icon(
                 Icons.exit_to_app,
               ),
