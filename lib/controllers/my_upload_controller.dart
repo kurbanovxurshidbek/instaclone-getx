@@ -24,7 +24,8 @@ class MyUploadController extends GetxController {
 
     String img_post = await FileService.uploadPostImage(pickedImage!);
     Post post = Post(caption, img_post);
-    await DBService.storePost(post);
+    Post myPost = await DBService.storePost(post);
+    await DBService.storeFeed(myPost);
 
     isLoading = false;
     update();

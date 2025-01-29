@@ -21,7 +21,7 @@ class _MyFeedPageState extends State<MyFeedPage> {
   @override
   void initState() {
     super.initState();
-    feedController.addFewPosts();
+    feedController.apiLoadMyFeed();
   }
 
   @override
@@ -152,7 +152,10 @@ class _MyFeedPageState extends State<MyFeedPage> {
                   IconButton(
                     onPressed: () {
                       if (!post.liked) {
-                      } else {}
+                        feedController.apiLikePost(post);
+                      } else {
+                        feedController.apiUnlikePost(post);
+                      }
                     },
                     icon: post.liked
                         ? Icon(

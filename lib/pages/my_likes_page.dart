@@ -19,7 +19,7 @@ class _MyLikesPageState extends State<MyLikesPage> {
   @override
   void initState() {
     super.initState();
-    likesController.addFewPosts();
+    likesController.apiLoadLikes();
   }
 
   @override
@@ -132,7 +132,9 @@ class _MyLikesPageState extends State<MyLikesPage> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        if (post.liked) {}
+                        if (post.liked) {
+                          likesController.apiUnlikePost(post);
+                        }
                       },
                       icon: Icon(
                         EvaIcons.heart,

@@ -16,7 +16,7 @@ class _MySearchPageState extends State<MySearchPage> {
   @override
   void initState() {
     super.initState();
-    searchController.addFakeMembers();
+    searchController.apiLoadMembers("");
   }
 
   @override
