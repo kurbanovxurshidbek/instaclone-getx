@@ -126,7 +126,9 @@ class _MyFeedPageState extends State<MyFeedPage> {
                 ),
                 post.mine
                     ? IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          feedController.dialogRemovePost(context,post);
+                        },
                         icon: Icon(Icons.more_horiz),
                       )
                     : SizedBox.shrink(),

@@ -15,4 +15,32 @@ class MySearchController extends GetxController {
     isLoading = false;
     update();
   }
+
+  void followMember(Member someone) async {
+    isLoading = true;
+    update();
+
+    await DBService.followMember(someone);
+    someone.followed = true;
+
+    isLoading = false;
+    update();
+
+    // Store someone's posts to my feed
+    DBService.storePostsToMyFeed(someone);
+  }
+
+  void unFollowMember(Member someone) async {
+    isLoading = true;
+    update();
+
+    await DBService.unFollowMember(someone);
+    someone.followed = false;
+
+    isLoading = false;
+    update();
+
+    // Remove someone's posts to my feed
+    DBService.removePostsToMyFeed(someone);
+  }
 }

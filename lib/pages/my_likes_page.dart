@@ -107,7 +107,9 @@ class _MyLikesPageState extends State<MyLikesPage> {
                 ),
                 post.mine
                     ? IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          likesController.dialogRemovePost(context,post);
+                        },
                         icon: Icon(Icons.more_horiz),
                       )
                     : SizedBox.shrink(),

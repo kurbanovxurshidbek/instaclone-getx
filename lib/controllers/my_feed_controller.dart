@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:instaclone/services/db_service.dart';
+import 'package:instaclone/services/utils_service.dart';
 
 import '../models/post_model.dart';
 
@@ -37,5 +39,22 @@ class MyFeedController extends GetxController {
     post.liked = false;
     isLoading = false;
     update();
+  }
+
+  apiRemovePost(Post post) async {
+    isLoading = true;
+    update();
+
+    await DBService.removePost(post);
+
+    apiLoadMyFeed();
+  }
+
+  void dialogRemovePost(BuildContext context, Post post) async {
+    var result = await UtilsService.dialogCommon(
+        context, "Remove", "Do you want to remove this post?", false);
+    if (result) {
+      apiRemovePost(post);
+    }
   }
 }

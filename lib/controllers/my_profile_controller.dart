@@ -42,6 +42,8 @@ class MyProfileController extends GetxController {
     member_fullname = member.fullname;
     member_email = member.email;
     member_image = member.img_url;
+    count_follower = member.followers_count;
+    count_following = member.following_count;
     update();
   }
 
