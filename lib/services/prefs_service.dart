@@ -16,4 +16,16 @@ class PrefsService {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.remove('user_id');
   }
+
+  // Firebase Token
+  static Future<bool> saveFCMToken(String fcm_token) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setString('fcm_token', fcm_token);
+  }
+
+  static Future<String> loadFCMToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('fcm_token');
+    return token!;
+  }
 }

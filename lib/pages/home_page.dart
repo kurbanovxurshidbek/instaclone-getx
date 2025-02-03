@@ -10,6 +10,8 @@ import 'package:instaclone/pages/my_upload_page.dart';
 import 'package:instaclone/services/log_service.dart';
 import 'package:instaclone/services/prefs_service.dart';
 
+import '../services/utils_service.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     loadUserId();
   }
 
-  loadUserId()async{
+  loadUserId() async {
     var uuid = await PrefsService.loadUserId();
     LogService.i(uuid);
   }

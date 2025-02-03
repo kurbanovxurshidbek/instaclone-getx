@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:instaclone/config/root_binding.dart';
 import 'package:instaclone/pages/home_page.dart';
 import 'package:instaclone/pages/splash_page.dart';
+import 'package:instaclone/services/notif_service.dart';
 
 import 'firebase_options.dart';
 
@@ -12,6 +13,7 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await NotifService().init();
 
   runApp(const MyApp());
 }

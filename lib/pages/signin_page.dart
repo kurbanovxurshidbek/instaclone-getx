@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instaclone/controllers/signin_controller.dart';
+import 'package:instaclone/services/utils_service.dart';
+
+import '../services/log_service.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -11,6 +14,17 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   var signInController = Get.find<SignInController>();
+
+  @override
+  void initState() {
+    super.initState();
+    loadDeviceId();
+  }
+
+  loadDeviceId() async {
+    var deviceId = await UtilsService.deviceUniqueId();
+    LogService.i(deviceId);
+  }
 
   @override
   Widget build(BuildContext context) {

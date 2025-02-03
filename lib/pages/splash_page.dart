@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instaclone/controllers/splash_controller.dart';
+import 'package:instaclone/services/log_service.dart';
+import 'package:instaclone/services/utils_service.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -17,6 +19,8 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     splashController.initTimer();
+    splashController.initNotification();
+    //splashController.loadDeviceParams();
   }
 
   @override
